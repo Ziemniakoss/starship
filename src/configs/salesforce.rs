@@ -19,6 +19,8 @@ pub struct SalesforceConfig<'a> {
     pub disabled: bool,
     /// Show alias if possible instead of full email address
     pub show_alias: bool,
+    /// Use sfdx to determine current org
+    pub use_sfdx:bool
 }
 
 impl<'a> Default for SalesforceConfig<'a> {
@@ -28,7 +30,8 @@ impl<'a> Default for SalesforceConfig<'a> {
             symbol: "☁ ",
             style: "bold blue",
             disabled: false,
-            show_alias: true
+            show_alias: true,
+            use_sfdx: false
         }
     }
 
