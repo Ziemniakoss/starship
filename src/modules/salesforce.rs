@@ -39,10 +39,7 @@ pub fn module<'a>(context: &'a Context) -> Option<Module<'a>> {
 
     let repo = match context.get_repo() {
         Ok(r) => r,
-        Err(error) => {
-            log::warn!("Module salesforce failed with error {}", error);
-            return None;
-        }
+        Err(error) => return None
     };
 
     let org_name_option = match config.use_sfdx {
@@ -130,7 +127,7 @@ fn get_org_name(repo_path: &PathBuf) -> Option<String> {
         return get_org_name_from_sfdx_config_file(sfdx_configuration_file);
     }
     //TODO from sf config file
-    return None
+    return None;
 }
 
 #[derive(Deserialize, Serialize)]
